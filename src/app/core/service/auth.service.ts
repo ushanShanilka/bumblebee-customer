@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class AuthService {
 
-  url = environment.authUrl + '/users';
+  url = environment.authUrl + '/user';
 
   constructor(private httpClient: HttpClient) {}
 

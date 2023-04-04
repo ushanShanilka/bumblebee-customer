@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-//@import 'ngx-toastr/toastr';
+@import 'ngx-toastr/toastr';
 
 html,
 body {
@@ -16,7 +16,6 @@ body {
 }
 
 .main {
-  // background: #f5f5f0;
   padding: 10px;
 
   hr{
@@ -57,18 +56,9 @@ textarea {
   max-height: 60px;
 }
 
-//.mat-form-field-wrapper {
-//  font-size: 12px !important;
-//}
-//
-//
-//.mat-form-field-appearance-standard .mat-form-field-flex {
-//  padding-top: 0 !important;
-//}
-
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 7px;
 }
 

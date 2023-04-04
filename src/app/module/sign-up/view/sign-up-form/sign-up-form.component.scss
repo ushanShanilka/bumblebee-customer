@@ -27,10 +27,21 @@
         margin-top: 30px;
       }
 
+      .sub-ti{
+        display: flex;
+        text-align: center;
+        margin-top: 75px;
+      }
+
       div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
         .form-row {
           display: flex;
           justify-content: center;
+          align-items: center;
 
           mat-form-field {
             font-size: 11px;
@@ -44,6 +55,34 @@
             background-color: black;
             display: flex;
             justify-content: center;
+          }
+
+          span{
+            b{
+              cursor: pointer;
+            }
+          }
+        }
+
+        .verification{
+          display: flex;
+          justify-content: space-around;
+          margin-left: 10px;
+
+          div{
+            width: 100%;
+
+            input{
+              width: 35px;
+              height: 35px;
+              margin: 15px;
+              text-align: center;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              display: none;
+            }
           }
         }
       }

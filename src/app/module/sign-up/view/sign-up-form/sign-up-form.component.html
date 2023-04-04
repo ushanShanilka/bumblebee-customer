@@ -4,10 +4,14 @@
   </div>
   <div class="section">
     <div class="form">
-      <span class="title">{{formMode.slice(0,1)+formMode.slice(1).toLowerCase()}} Customer</span>
+      <span class="title">Customer {{formMode.slice(0,1)+formMode.slice(1).toLowerCase()}}</span>
+
+      <span *ngIf="currentUser!=null" class="sub-ti">We will send your an OTP Code on this email {{currentUser}}</span>
+
 
       <div>
-        <form [formGroup]="signUpForm">
+
+        <form *ngIf="currentUser==null" [formGroup]="signUpForm">
           <div class="form-row">
             <mat-form-field appearance="outline">
               <mat-label>First Name</mat-label>
@@ -25,23 +29,23 @@
 
           <div class="form-row">
             <mat-form-field appearance="outline">
-              <mat-label>email</mat-label>
-              <input formControlName="email" type="email" matInput placeholder="Ex. email" value="">
+              <mat-label>Email</mat-label>
+              <input formControlName="email" type="email" matInput placeholder="Ex. email">
             </mat-form-field>
           </div>
 
           <div class="form-row">
             <mat-form-field appearance="outline">
-              <mat-label>confirmEmail</mat-label>
-              <input formControlName="confirmEmail" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <mat-label>Confirm Email</mat-label>
+              <input formControlName="confirmEmail" matInput placeholder="Ex. " type="email">
             </mat-form-field>
           </div>
 
           <div class="form-row">
 
             <mat-form-field appearance="outline">
-              <mat-label>dateOfBirth</mat-label>
-              <input formControlName="dateOfBirth" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <mat-label>Date Of Birth</mat-label>
+              <input formControlName="dateOfBirth" matInput placeholder="Ex. " type="date">
             </mat-form-field>
 
           </div>
@@ -50,7 +54,7 @@
           <div class="form-row">
 
             <mat-form-field appearance="outline" class="">
-              <mat-label>address</mat-label>
+              <mat-label>Address</mat-label>
               <textarea formControlName="address" matInput></textarea>
             </mat-form-field>
 
@@ -59,7 +63,7 @@
           <div class="form-row">
 
             <mat-form-field appearance="outline">
-              <mat-label>nic</mat-label>
+              <mat-label>NIC Number</mat-label>
               <input formControlName="nic" matInput placeholder="Ex. YYY-mm-dd" value="">
             </mat-form-field>
 
@@ -68,25 +72,16 @@
           <div class="form-row">
 
             <mat-form-field appearance="outline">
-              <mat-label>countryCode</mat-label>
-              <input formControlName="countryCode" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <mat-label>Country Code</mat-label>
+              <input formControlName="countryCode" matInput placeholder="Ex. " type="number">
             </mat-form-field>
 
           </div>
 
           <div class="form-row">
             <mat-form-field appearance="outline">
-              <mat-label>phoneNumber</mat-label>
-              <input formControlName="phoneNumber" matInput placeholder="Ex. YYY-mm-dd" value="">
-            </mat-form-field>
-
-          </div>
-
-          <div class="form-row">
-
-            <mat-form-field appearance="outline">
-              <mat-label>password</mat-label>
-              <input formControlName="password" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <mat-label>Phone Number</mat-label>
+              <input formControlName="phoneNumber" matInput placeholder="Ex. " type="number">
             </mat-form-field>
 
           </div>
@@ -94,8 +89,17 @@
           <div class="form-row">
 
             <mat-form-field appearance="outline">
-              <mat-label>confirmPassword</mat-label>
-              <input formControlName="confirmPassword" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <mat-label>Password</mat-label>
+              <input formControlName="password" matInput placeholder="Ex. " type="password">
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input formControlName="confirmPassword" matInput placeholder="Ex. " type="password">
             </mat-form-field>
 
           </div>
@@ -108,6 +112,36 @@
             </button>
           </div>
         </form>
+
+        <form *ngIf="currentUser!=null" class="verification" [formGroup]="verificationForm">
+          <div>
+            <input formControlName="one" maxlength="1" required type="text">
+          </div>
+          <div>
+            <input formControlName="two" maxlength="1" type="text">
+          </div>
+          <div>
+            <input formControlName="tree" maxlength="1" type="text">
+          </div>
+          <div>
+            <input formControlName="four" maxlength="1" type="text">
+          </div>
+          <div>
+            <input formControlName="five" maxlength="1" type="text">
+          </div>
+
+
+        </form>
+
+        <div *ngIf="currentUser!=null" class="form-row">
+          <button *ngIf="!apiResponse" (click)="verified()" mat-raised-button color="primary">Verified
+            <mat-icon fontIcon="login"></mat-icon></button>
+          <button *ngIf="apiResponse" color="primary" mat-button>
+            <mat-spinner diameter="20"></mat-spinner>
+          </button>
+
+          <span>Dont receive the OTP ? <b (click)="resendOtp()"> RESEND OTP</b></span>
+        </div>
       </div>
     </div>
   </div>
