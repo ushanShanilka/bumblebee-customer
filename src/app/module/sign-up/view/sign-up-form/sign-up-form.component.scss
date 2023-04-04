@@ -1,0 +1,43 @@
+.main
+{
+  width: 98%;
+  height: 95vh;
+  display: flex;
+  border-radius: 10px;
+
+  .section{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form{
+      width: 80%;
+      height: 500px;
+      box-shadow: 0 1px 9px 0 rgb(0 0 0 / 10%), 0px 6px 5px 0px rgb(0 0 0 / 3%);
+      overflow-x: scroll;
+
+      .title{
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        width: 95%;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      div{
+        .form-row {
+          display: flex;
+
+          mat-form-field {
+            font-size: 11px;
+            width: 100%;
+            padding: 2px;
+          }
+        }
+      }
+    }
+  }
+}

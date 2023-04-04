@@ -1,0 +1,97 @@
+<div class="main">
+  <div class="section">
+    <img width="100%" class="" src="../../../assets/undraw_online_ad_re_ol62.svg" alt="">
+  </div>
+  <div class="section">
+    <div class="form">
+      <span class="title">{{formMode.slice(0,1)+formMode.slice(1).toLowerCase()}} Customer</span>
+
+      <div>
+        <form [formGroup]="signUpForm">
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input formControlName="firstName" matInput placeholder="Ex. Abc.." value="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input formControlName="lastName" matInput placeholder="Ex. Abc.." value="">
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>email</mat-label>
+              <input formControlName="email" type="email" matInput placeholder="Ex. email" value="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>confirmEmail</mat-label>
+              <input formControlName="confirmEmail" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="outline">
+              <mat-label>nic</mat-label>
+              <input formControlName="nic" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>dateOfBirth</mat-label>
+              <input formControlName="dateOfBirth" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <mat-form-field appearance="outline" class="">
+              <mat-label>address</mat-label>
+              <textarea formControlName="address" matInput></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>nic</mat-label>
+              <input formControlName="nic" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="outline">
+              <mat-label>countryCode</mat-label>
+              <input formControlName="countryCode" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>phoneNumber</mat-label>
+              <input formControlName="phoneNumber" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="outline">
+              <mat-label>password</mat-label>
+              <input formControlName="password" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>confirmPassword</mat-label>
+              <input formControlName="confirmPassword" matInput placeholder="Ex. YYY-mm-dd" value="">
+            </mat-form-field>
+
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

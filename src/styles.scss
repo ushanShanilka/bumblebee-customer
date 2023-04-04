@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+//@import 'ngx-toastr/toastr';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .mat-drawer-content{
+    background-color: rgb(245, 245, 245);
+  }
+}
+
+.main {
+  // background: #f5f5f0;
+  padding: 10px;
+
+  hr{
+    color: rgb(232, 232, 232);
+    opacity: 0.2;
+  }
+
+  .main-form {
+    .form-row {
+      display: flex;
+
+      mat-form-field {
+        //width: 100%;
+        //padding: 2px;
+      }
+
+    }
+  }
+}
+
+.title {
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  span {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+}
+
+textarea {
+  height: 11px;
+  min-height: 13px;
+  max-height: 60px;
+}
+
+//.mat-form-field-wrapper {
+//  font-size: 12px !important;
+//}
+//
+//
+//.mat-form-field-appearance-standard .mat-form-field-flex {
+//  padding-top: 0 !important;
+//}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
