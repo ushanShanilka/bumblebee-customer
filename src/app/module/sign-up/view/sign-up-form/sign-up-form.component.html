@@ -64,7 +64,7 @@
 
             <mat-form-field appearance="outline">
               <mat-label>NIC Number</mat-label>
-              <input formControlName="nic" matInput placeholder="Ex. YYY-mm-dd" value="">
+              <input formControlName="nic" matInput placeholder="Ex. " value="">
             </mat-form-field>
 
           </div>
@@ -115,19 +115,19 @@
 
         <form *ngIf="currentUser!=null" class="verification" [formGroup]="verificationForm">
           <div>
-            <input formControlName="one" maxlength="1" required type="text">
+            <input #one (keyup)="changeOneValue()" formControlName="one" maxlength="1" required type="text">
           </div>
           <div>
-            <input formControlName="two" maxlength="1" type="text">
+            <input #two (keyup)="changeTwoValue()"  formControlName="two" maxlength="1" type="text">
           </div>
           <div>
-            <input formControlName="tree" maxlength="1" type="text">
+            <input #three (keyup)="changeThreeValue()" formControlName="three" maxlength="1" type="text">
           </div>
           <div>
-            <input formControlName="four" maxlength="1" type="text">
+            <input #four (keyup)="changeFourValue()" formControlName="four" maxlength="1" type="text">
           </div>
           <div>
-            <input formControlName="five" maxlength="1" type="text">
+            <input #five (keyup)="changeFiveValue()" formControlName="five" maxlength="1" type="text">
           </div>
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../core/service/auth.service";
 import {RegisterDTO} from "../../../../core/dto/RegisterDTO";
@@ -21,6 +21,13 @@ export class SignUpFormComponent implements OnInit {
   signUpForm!: FormGroup;
   verificationForm!: FormGroup;
   currentUser: string;
+
+  @ViewChild('one') one!: ElementRef;
+  @ViewChild('two') two!: ElementRef;
+  @ViewChild('three') three!: ElementRef;
+  @ViewChild('four') four!: ElementRef;
+  @ViewChild('five') five!: ElementRef;
+
 
   constructor(private formBuilder: FormBuilder,
               private authService:AuthService,
@@ -57,7 +64,7 @@ export class SignUpFormComponent implements OnInit {
     this.verificationForm = this.formBuilder.group({
       one: ['', Validators.required],
       two: ['', Validators.required],
-      tree: ['', Validators.required],
+      three: ['', Validators.required],
       four: ['', Validators.required],
       five: ['', Validators.required],
     });
@@ -100,7 +107,7 @@ export class SignUpFormComponent implements OnInit {
 
   verified() {
     this.apiResponse = true;
-    let s = this.verificationForm.get('one')?.value+""+this.verificationForm.get('two')?.value+""+this.verificationForm.get('tree')?.value+""+this.verificationForm.get('four')?.value+""+this.verificationForm.get('five')?.value;
+    let s = this.verificationForm.get('one')?.value+""+this.verificationForm.get('two')?.value+""+this.verificationForm.get('three')?.value+""+this.verificationForm.get('four')?.value+""+this.verificationForm.get('five')?.value;
     let otpConfirmationDTO = new OtpConfirmationDTO(
       this.currentUser,
       Number(s)
@@ -137,5 +144,43 @@ export class SignUpFormComponent implements OnInit {
     setTimeout (() => {
       this.apiResponse = false;
     }, 1000);
+  }
+
+  changeOneValue() {
+    if (this.verificationForm.get('one')?.value != ''){
+      this.two.nativeElement.focus()
+    }
+  }
+
+  changeTwoValue() {
+    if (this.verificationForm.get('two')?.value != ''){
+      this.three.nativeElement.focus()
+    }else {
+      this.one.nativeElement.focus()
+    }
+  }
+
+  changeThreeValue() {
+    if (this.verificationForm.get('three')?.value != ''){
+      this.four.nativeElement.focus()
+    }else {
+      this.two.nativeElement.focus()
+    }
+  }
+
+  changeFourValue() {
+    if (this.verificationForm.get('four')?.value != ''){
+      this.five.nativeElement.focus()
+    }else {
+      this.three.nativeElement.focus()
+    }
+  }
+
+  changeFiveValue() {
+    if (this.verificationForm.get('five')?.value != ''){
+      this.verified();
+    }else {
+      this.four.nativeElement.focus()
+    }
   }
 }
